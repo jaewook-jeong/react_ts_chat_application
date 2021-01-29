@@ -1,56 +1,67 @@
 import React from 'react';
-import {} from './style';
+import { StyledButton } from './style';
+import RotateSVG from '../../../common/style/rotateSVG';
 
 export interface Props {
-  /** 버튼 내용 또는 엘리먼트 */
-  children: React.ReactElement | string;
-  /** react-router/Link 사용 (내부적인 routing)*/
-  to?: string;
-  /** 외부 링크 */
+  /** ReactNode */
+  children: React.ReactNode;
+  /** href link */
   href?: string;
-  /** button styling type (ex. priamry, secondary) */
-  type?: 'primary' | 'link' | 'transparent' | 'text';
-  /** disabled 여부 */
-  disabled?: boolean;
+  /** button styling type (priamry, link, text) */
+  buttonType?: 'default' |'primary' | 'link' | 'text';
   /** click handler */
   onClick?: () => void;
   /** button size */
   size?: 'large' | 'middle' | 'small';
   /** fit to size enable */
   block?: boolean;
-  /** icon component */
-  icon?: React.ReactElement;
   /** loading status */
   loading?: boolean;
   /** button shape */
-  shape?: 'circle' | 'round';
+  shape?: 'default' | 'circle' | 'round';
   /** css style */
   style?: React.CSSProperties;
 }
 
 function Button({
   children,
-  to,
   href,
-  type = 'default',
-  disabled = false,
+  buttonType = 'default',
   size = 'middle',
   block = false,
   loading = false,
+  shape = 'default',
   ...props
 }: Props): React.ReactElement {
   
-  if (to) {
+  if (href) {
     return (
-
-    );
-  } else if (href) {
-    return (
-
-    );
+      <a href={href}>
+        <StyledButton
+          buttonType='link'
+          size={size}
+          block={block}
+          shape={shape}
+          loading={false}
+          {...props}
+        >
+          {children}
+        </StyledButton>
+      </a>
+    )
   }
-
   return (
-
+    <StyledButton
+      buttonType={buttonType}
+      size={size}
+      block={block}
+      shape={shape}
+      loading={loading}
+      {...props}
+    >
+      <span>{children}</span>
+    </StyledButton>
   );
 }
+
+export default Button;
