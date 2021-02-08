@@ -1,5 +1,5 @@
 import React from 'react';
-import { AvatarImg, AvatarWrapper } from './style';
+import { AvatarImg, AvatarSpan, AvatarWrapper } from './style';
 
 export type AvatarSize = 'large' | 'small' | 'default' | number ;
 
@@ -14,18 +14,18 @@ interface Props {
 }
 
 function Avatar({
-  shape,
-  size,
-  gap,
+  shape = 'circle',
+  size = 'default',
+  gap = 4,
   src,
   style,
   children,
   alt
 }: Props): React.ReactElement {
   return (
-    <AvatarWrapper style={style} shape={shape}>
+    <AvatarWrapper style={style} shape={shape} size={size}>
       {
-        src ? <AvatarImg src={src} alt={alt} /> : children
+        src ? <AvatarImg src={src} alt={alt} /> : <AvatarSpan gap={gap}>{children}</AvatarSpan>
       }
     </AvatarWrapper>
   );
