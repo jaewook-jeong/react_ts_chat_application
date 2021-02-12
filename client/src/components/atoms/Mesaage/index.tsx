@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageContainer } from './style';
+import { ContentWrapper, MeContainer, MessageContainer, OtherContainer, TimeWrapper } from './style';
 
 interface Props {
 content: string;
@@ -13,8 +13,14 @@ function Message({content, time, type, style}: Props) {
     <MessageContainer type={type} style={style}>
       {
         type === 'me' ?
-        <div>{time} {content}</div>
-        :<div>{content} {time}</div>
+          <MeContainer>
+            <TimeWrapper>{time}</TimeWrapper>
+            <ContentWrapper>{content}</ContentWrapper>
+          </MeContainer>
+        : <OtherContainer>
+            <ContentWrapper>{content}</ContentWrapper>
+            <TimeWrapper>{time}</TimeWrapper>
+          </OtherContainer>
       }
     </MessageContainer>
   );
