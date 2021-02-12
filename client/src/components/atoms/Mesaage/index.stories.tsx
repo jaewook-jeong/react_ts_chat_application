@@ -1,6 +1,4 @@
 import React from 'react';
-import { text, boolean, select } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 
 import Message from '.';
 
@@ -19,19 +17,30 @@ export const general: React.FC = () => (
 export const allstyle: React.FC = () => (
   <div
     style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-      width: '100px'
+      width: '100%',
+      height: '500px'
     }}
   >
-    <Message
-      content="안녕하세요"
-      type="me"
-    />
-    <Message
-      content="안녕하세요2"
-      type="other"
-    />
+    <div>
+      <Message
+        content="안녕하세요"
+        type="me"
+      />
+      <Message
+        content="저는 정재욱이라고 합니다."
+        type="me"
+      />
+    </div>
+    <div>
+      <Message
+        content="안녕하세요~"
+        type="other"
+      />
+      <Message
+        content="만나서 반가워요"
+        type="other"
+      />
+    </div>
+      
   </div>
 );
