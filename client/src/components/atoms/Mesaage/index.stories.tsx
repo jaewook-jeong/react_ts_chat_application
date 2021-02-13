@@ -28,6 +28,7 @@ export const allstyle: React.FC = () => (
       />
       <Message
         content="저는 정재욱이라고 합니다."
+        time="9:18PM"
         type="me"
       />
     </div>
@@ -38,6 +39,7 @@ export const allstyle: React.FC = () => (
       />
       <Message
         content="만나서 반가워요"
+        time="9:30PM"
         type="other"
       />
     </div>
