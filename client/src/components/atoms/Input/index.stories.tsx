@@ -20,7 +20,11 @@ export const InputTest: React.FC = () => (
     style={{
       display:'flex',
       width: '300px',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      alignContent: 'space-between',
+      flexDirection: 'column',
+      height: '400px'
     }}
   >
     <Input
@@ -31,6 +35,9 @@ export const InputTest: React.FC = () => (
     <Input
       disabled
       placeholder={text('placeholder', 'disabled')}
+    />
+    <Input.Password
+      placeholder="비밀번호"
     />
   </div>
 );

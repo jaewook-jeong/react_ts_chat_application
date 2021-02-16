@@ -1,4 +1,5 @@
 import React from 'react';
+import Password from './Password';
 import { InputContainer } from './style';
 
 interface Props {
@@ -16,5 +17,7 @@ function Input(props: Props) {
     <InputContainer {...props} autoComplete="off" />
   );
 }
+
+Input.Password = Password;
 
 export default Input;
