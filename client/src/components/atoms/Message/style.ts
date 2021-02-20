@@ -7,6 +7,7 @@ interface Props {
 
 export const MessageContainer = styled.div<Props>`
 width: 100%;
+font: inherit;
 display: flex;
 font-size: .9375rem;
 padding-bottom: 2px;
